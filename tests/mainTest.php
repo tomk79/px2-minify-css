@@ -23,10 +23,21 @@ class mainTest extends PHPUnit_Framework_TestCase{
 		$output = $this->passthru( [
 			'php',
 			__DIR__.'/testdata/standard/.px_execute.php' ,
-			'/' ,
+			'/index_files/normal_css.css' ,
 		] );
 		// var_dump($output);
 		$this->assertEquals( gettype($output), gettype('') );
+		$this->assertEquals( $output, '.normal-css{color:red}' );
+
+		// トップページを実行
+		$output = $this->passthru( [
+			'php',
+			__DIR__.'/testdata/standard/.px_execute.php' ,
+			'/index_files/scss_css.css' ,
+		] );
+		// var_dump($output);
+		$this->assertEquals( gettype($output), gettype('') );
+		$this->assertEquals( $output, '.scss-css .scss-css__a span{color:red}' );
 
 
 	}//testExecPx2()

@@ -2,6 +2,11 @@
 CSSファイルを圧縮する Pickles 2 プラグイン。
 
 
+## 導入手順 - Setup
+
+TBD
+
+
 ## ライセンス - License
 
 MIT License

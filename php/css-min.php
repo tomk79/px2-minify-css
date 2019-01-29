@@ -15,6 +15,12 @@ class cssMin{
 	 * @param object $plugin_conf プラグイン設定
 	 */
 	static public function minify_css($px, $plugin_conf){
+		$compressor = new \tubalmartin\CssMin\Minifier;
+
+		$src = $px->bowl()->get_clean( 'main' );
+		$src = $compressor->run($src); 
+		$px->bowl()->replace( $src, 'main' );
+
 		return true;
 	}
 
